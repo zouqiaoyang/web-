@@ -1,4 +1,8 @@
 import logging
+import time
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from config.base_config import *
 from selenium import webdriver
 
 # 工具类
@@ -11,7 +15,7 @@ class DriverUtils:
     def get_driver(cls):
         if cls.__driver is None:
             logging.info("creat chrome driver")
-            cls.__driver = webdriver.Chrome()
+            cls.__driver = webdriver.Chrome(options=CHROME_OPTIONS)
             cls.__driver.maximize_window()
             cls.__driver.implicitly_wait(10)
         else:
@@ -21,7 +25,7 @@ class DriverUtils:
     # 关闭浏览器驱动
     @classmethod
     def quit_driver(cls):
-        if cls.__driver is not None and cls.__switch is False:
+        if cls.__driver is not None:
             logging.info("quit chrome driver")
             cls.__driver.quit()
             cls.__driver = None
@@ -31,3 +35,9 @@ class DriverUtils:
     @classmethod
     def set_switch(cls, switch):
         cls.__switch = switch
+
+    @classmethod
+    def back_ops(cls):
+        time.sleep(2)
+        cls.__driver.find_element_by_xpath("//div[@class='el-scrollbar__view']/span[1]").click()
+        cls.__driver.refresh()
