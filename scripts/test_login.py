@@ -1,9 +1,6 @@
 import logging
-import time
 import pytest
-from base.base_analyze import analyze_data
-from page.login_page import LoginPage
-from utils.driver_utils import DriverUtils
+from page.interview.login_page import LoginPage
 from config.base_config import *
 
 # 登录
@@ -38,4 +35,4 @@ class TestLogin:
         # logging.info("查询中，请稍等...")
         # time.sleep(5)
         # assert VERIFY == self.login_page.get_results()
-        assert True
+        assert self

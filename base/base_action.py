@@ -8,7 +8,7 @@ class BaseAction:
 
     def __init__(self, driver):
         self.driver = driver
-        self.timeout = 20
+        self.timeout = 5
 
     # 查找单个元素
     def find_el(self, feature):

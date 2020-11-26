@@ -1,5 +1,5 @@
 import json
-from page.login_page import LoginPage
+
 
 # 解析json数据
 def analyze_data(filename):

@@ -1,7 +1,4 @@
 import logging
-import time
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 from config.base_config import *
 from selenium import webdriver
 
@@ -17,7 +14,7 @@ class DriverUtils:
             logging.info("creat chrome driver")
             cls.__driver = webdriver.Chrome(options=CHROME_OPTIONS)
             cls.__driver.maximize_window()
-            cls.__driver.implicitly_wait(10)
+            cls.__driver.implicitly_wait(5)
         else:
             logging.info("use existed chrome driver")
         return cls.__driver
@@ -38,6 +35,7 @@ class DriverUtils:
 
     @classmethod
     def back_ops(cls):
-        time.sleep(2)
+        # time.sleep(2)
         cls.__driver.find_element_by_xpath("//div[@class='el-scrollbar__view']/span[1]").click()
         cls.__driver.refresh()
+        pass

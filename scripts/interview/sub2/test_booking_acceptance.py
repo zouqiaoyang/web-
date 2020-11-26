@@ -9,20 +9,6 @@ from config.base_config import *
 # 采访-预订验收 测试用例
 class TestBookingAcceptance:
 
-    # def setup_class(self):
-    #     self.driver = DriverUtils.get_driver()
-    #     DriverUtils.set_switch(True)
-    #     self.page = BookingAcceptancePage(self.driver)
-    #     self.driver.get(URL)
-    #
-    #     self.page.input_username(USERNAME)
-    #     self.page.input_password(PASSWORD)
-    #     self.page.click_login_btn()
-    #
-    # def teardown_class(self):
-    #     time.sleep(3)
-    #     DriverUtils.quit_driver()
-
     @pytest.fixture(scope='function', autouse=True)
     def setup_class(self, drivers):
         self.page = BookingAcceptancePage(drivers)
@@ -34,8 +20,8 @@ class TestBookingAcceptance:
     # @pytest.mark.skip
     def test_select(self):
         """ 测试 查询 功能 """
-        self.page.click_model2()
-        self.page.click_menu2()
-        self.page.click_sub_menu2()
-        self.page.click_sub_menu2_btn()
-        assert True
+        self.page.click_model('采访')
+        self.page.click_menu('图书验收处理')
+        self.page.click_sub_menu(2, '预订验收')
+        self.page.click_sub_menu_btn(' 查询 ')
+        assert self.page.get_sub_menu_alert()
