@@ -1,6 +1,6 @@
 import logging
 import pytest
-from page.interview.login_page import LoginPage
+from page.login_page import LoginPage
 from config.base_config import *
 
 # 登录
@@ -35,4 +35,4 @@ class TestLogin:
         # logging.info("查询中，请稍等...")
         # time.sleep(5)
         # assert VERIFY == self.login_page.get_results()
-        assert self
+        assert self.login_page.get_sub_menu_alert()

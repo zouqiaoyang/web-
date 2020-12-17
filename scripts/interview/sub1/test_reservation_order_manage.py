@@ -17,7 +17,7 @@ class TestReservationOrderManage:
         DriverUtils.back_ops()
         time.sleep(3)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_select(self):
         """ 测试 查询 功能 """
         self.page.click_model('采访')
@@ -26,7 +26,7 @@ class TestReservationOrderManage:
         self.page.click_sub_menu_btn('查询 ')
         assert self.page.get_sub_menu_alert()
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_details_select(self):
         """ 测试 预订单详情-查询 功能"""
         # 进入征订目录页面

@@ -50,5 +50,12 @@ class LoginPage(BaseAction):
         return self.click(self.query_btn)
 
     # 获取查询结果
-    def get_results(self):
-        return self.find_el(self.query_results)
+    def get_sub_menu_alert(self):
+        """ 判断是否有提示框
+        没有默认为查找成功，有提示框判断提示框的class元素中是否含有el-message--error，含有则为False，不含有则不是错误提示框为成功
+        str.find()：找不到返回-1，找到返回下标
+        """
+        element = self.find_el((By.XPATH, "//div[@role='alert']"))
+        if element is None or str(element.get_attribute('class')).find("el-message--error") == "-1":
+            return True
+        return False

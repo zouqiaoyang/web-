@@ -20,5 +20,5 @@ def set_log_config():
     lf.setFormatter(formatter)
 
     # 将处理器添加到日志器
-    logger.addHandler(ls)
+    # logger.addHandler(ls)
     logger.addHandler(lf)

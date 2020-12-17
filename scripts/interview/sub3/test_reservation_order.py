@@ -17,7 +17,7 @@ class TestReservationOrder:
         DriverUtils.back_ops()
         time.sleep(3)
 
-    # @pytest.mark.skip
+    @pytest.mark.skip
     def test_select(self):
         """ 测试 查询 功能 """
         self.page.click_model('采访')
